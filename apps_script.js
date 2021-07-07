@@ -1,11 +1,15 @@
 var scriptProperties = PropertiesService.getScriptProperties()
-var divider = {'type': 'divider'}
-const CHANNEL_ID = // YOUR CHANNEL
 
 // function setCredentials() {
 //     scriptProperties.setProperty('SLACK_TOKEN', 'YOUR TOKEN')
+// 	   Logger.log(scriptProperties.getProperty('SLACK_TOKEN'))
 // }
-// Logger.log(scriptProperties.getProperty('SLACK_TOKEN'))
+
+var divider = {'type': 'divider'}
+const CHANNEL_ID = // YOUR CHANNEL
+const activeUsersSheet = // Sheet ID
+const importsSheet = // Sheet ID
+const newUsersSheet = // Sheet ID
 
 function getSheetById(id) {
   // Get sheet by ID
@@ -66,7 +70,7 @@ function activity(sheetId, section) {
 }
 
 function newUsers() {
-  var values = getSheetById(1174311646).getDataRange().getValues()
+  var values = getSheetById(newUsersSheet).getDataRange().getValues()
   var newUsers = findCol(values, 'new_users', 1).toLocaleString()
   return buildSection(`*New users* ${newUsers} :hatching_chick:`)
 }
@@ -77,8 +81,8 @@ function buildMessage() {
     header(),
     divider,
     buildRow(
-      activity(1192510795, 'Active users'),
-      activity(543825364, 'Imports')
+      activity(activeUsersSheet, 'Active users'),
+      activity(importsSheet, 'Imports')
     ),
     divider,
     newUsers()
