@@ -16,7 +16,7 @@
 	-	Add your bot to the channel			
 *	Setup AppsScript project				
 	-	Go to Tools => Script editor and give a name to your project			
-	-	Setup credentials using [PropertiesService](https://developers.google.com/apps-script/reference/properties/properties-service)
+	-	Setup credentials using [Properties Service](https://developers.google.com/apps-script/reference/properties/properties-service)
 	-	Write the script :)	[Slack Block kit builder](https://app.slack.com/block-kit-builder)
 	-	Test run		
 	-	Schedule		
